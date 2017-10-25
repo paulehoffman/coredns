@@ -10,8 +10,8 @@ import (
 	"golang.org/x/net/context"
 )
 
-// ToDnstap converts a state and possible reply to a dnstap message.
-func ToDnstap(ctx context.Context, upstream, proto string, state request.Request, reply *dns.Msg, start time.Time) error {
+// ToMessage converts a state and possible reply to a dnstap message.
+func ToMessage(ctx context.Context, upstream, proto string, state request.Request, reply *dns.Msg, start time.Time) error {
 	tapper := TapperFromContext(ctx)
 	if tapper == nil {
 		return nil

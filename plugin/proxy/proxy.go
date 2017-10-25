@@ -98,7 +98,7 @@ func (p Proxy) ServeDNS(ctx context.Context, w dns.ResponseWriter, r *dns.Msg) (
 				child.Finish()
 			}
 
-			taperr := dnstap.ToDnstap(ctx, host.Name, upstream.Exchanger().Protocol(), state, reply, start)
+			taperr := dnstap.ToMessage(ctx, host.Name, upstream.Exchanger().Protocol(), state, reply, start)
 
 			if backendErr == nil {
 				w.WriteMsg(reply)
